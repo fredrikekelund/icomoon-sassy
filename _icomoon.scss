@@ -1,0 +1,85 @@
+/**
+ * IcoMoon SASS mixins
+ *
+ * Here comes two mixins to simplify interaction between IcoMoon and SASS!
+ * You get the best of both worlds by combining the performance advantage
+ * of not using an attribute selector and the simplified development
+ * experience of not having to write out every class name.
+ *
+ * This includes the IcoMoon fonts with the necessary @font-face rules:
+ * @include icomoonInclude("path");
+ *
+ * This creates classes for the class names and unicode points passed:
+ * @include icomoonIcons((
+ *     checkmark: "\e600",
+ *     close: "\e602",
+ *     copy: "\e601"
+ * ));
+ *
+ */
+
+
+
+/**
+ * scss-lint has some trouble with prefixed rules, so keeping this separate
+ */
+@mixin smooth-fonts {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+%icomoon {
+    @include smooth-fonts;
+    font-family: "icomoon";
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    speak: none;
+    text-transform: none;
+}
+
+/**
+ * Includes the icomoon font with @font-face rules. You can pass a parameter
+ * to use as the URL to the font (without the file extension).
+ */
+@mixin icomoonInclude ($path: "icomoon") {
+    @font-face {
+        font-family: "icomoon";
+        src: url("#{$path}.eot");
+        src: url("#{$path}.eot#iefix") format("embedded-opentype"),
+             url("#{$path}.woff") format("woff"),
+             url("#{$path}.ttf") format("truetype"),
+             url("#{$path}.svg#icomoon") format("svg");
+        font-weight: normal;
+        font-style: normal;
+    }
+}
+
+/**
+ * Adds classes for every icon in a map of iconName: unicodePoint
+ */
+@mixin icomoonIcons ($icons) {
+    @each $icon, $content in $icons {
+        .icon-#{$icon} {
+            &:before,
+            &:after {
+                @extend %icomoon;
+            }
+
+            &:before {
+                content: $content;
+            }
+
+            &.after {
+                &:before {
+                    content: "";
+                }
+
+                &:after {
+                    content: $content;
+                }
+            }
+        }
+    }
+}

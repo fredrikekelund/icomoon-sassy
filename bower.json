@@ -1,0 +1,15 @@
+{
+  "name": "icomoon-sassy",
+  "version": "1.0.0",
+  "authors": [
+    "Fredrik Ekelund <fredrik@fredrik.computer>"
+  ],
+  "description": "Two SASS mixins to make working with IcoMoon a little bit easier",
+  "main": "_icomoon.scss",
+  "keywords": [
+    "sass",
+    "css",
+    "icomoon"
+  ],
+  "license": "MIT"
+}
