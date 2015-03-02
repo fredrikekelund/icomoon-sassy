@@ -2,6 +2,11 @@
 
 > Two SASS mixins to make working with [IcoMoon](https://icomoon.io/) a little bit easer
 
+Available via [Bower](http://bower.io/):
+```sh
+$ bower install icomoon-sassy
+```
+
 ## @include includeIcomoon("/path/to/icomoon")
 Includes the IcoMoon fonts with the necessary @font-face rules. Takes an optional full path minus the file extension.
 
