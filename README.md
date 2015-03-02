@@ -7,11 +7,16 @@ Available via [Bower](http://bower.io/):
 $ bower install icomoon-sassy
 ```
 
-## @include includeIcomoon("/path/to/icomoon")
+Get set up by including the main file in your SCSS with a simple:
+```scss
+@import "/path/to/bower_components/icomoon-sassy/icomoon";
+```
+
+## @include includeIcomoon("path")
 Includes the IcoMoon fonts with the necessary @font-face rules. Takes an optional full path minus the file extension.
 
 ```scss
-@include icomoonInclude("path");
+@include icomoonInclude("/path/to/icomoon");
 ```
 
 ## @include icomoonIcons((checkmark: "\e600"))
